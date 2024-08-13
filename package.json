@@ -1,0 +1,63 @@
+{
+  "name": "ioc-client",
+  "version": "1.0.0",
+  "engines": {
+    "node": "^18.0.0"
+  },
+  "scripts": {
+    "serve": "vite",
+    "preview:dev": "vite preview --port 8080 --mode dev --outDir dist/dev",
+    "preview:prod": "vite preview --port 8080 --mode dev --outDir dist/prod",
+    "build:dev": "vue-tsc --noEmit && vite build --mode dev --outDir dist/dev",
+    "build:prod": "vue-tsc --noEmit && vite build --mode prod --outDir dist/prod",
+    "postbuild:dev": "node ./src/utils/postbuild.mjs --relevance ./dist/dev/static/info.json",
+    "postbuild:prod": "node ./src/utils/postbuild.mjs --relevance ./dist/prod/static/info.json",
+    "lint": "eslint . --fix --ignore-path .gitignore --ignore-pattern \"public/*\""
+  },
+  "dependencies": {
+    "@mdi/font": "7.4.47",
+    "vee-validate": "4.12.8",
+    "@vee-validate/i18n": "4.12.8",
+    "@vee-validate/rules": "4.12.8",
+    "core-js": "3.36.0",
+    "roboto-fontface": "*",
+    "vue": "3.4.21",
+    "vue-i18n": "9.13.1",
+    "vuetify": "3.6.8",
+    "yup": "1.4.0",
+    "axios": "1.6.8",
+    "humanize-duration": "3.32.0",
+    "moment": "2.30.1",
+    "moment-timezone": "0.5.45"
+  },
+  "devDependencies": {
+    "@babel/types": "7.24.0",
+    "@types/node": "20.12.7",
+    "@vitejs/plugin-vue": "5.0.4",
+    "@vue/eslint-config-typescript": "12.0.0",
+    "@intlify/unplugin-vue-i18n": "4.0.0",
+    "eslint": "8.57.0",
+    "eslint-config-standard": "17.1.0",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-n": "16.6.2",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "6.1.1",
+    "eslint-plugin-vue": "9.25.0",
+    "pinia": "2.1.7",
+    "lodash": "4.17.21",
+    "@types/lodash": "4.17.0",
+    "@types/humanize-duration": "3.27.4",
+    "sass": "1.75.0",
+    "typescript": "5.4.2",
+    "unplugin-fonts": "1.1.1",
+    "unplugin-vue-components": "0.26.0",
+    "vite": "5.2.10",
+    "vite-plugin-vuetify": "2.0.3",
+    "vue-router": "4.3.2",
+    "vue-tsc": "2.0.14",
+    "commander": "11.1.0",
+    "dateformat": "5.0.3",
+    "dotenv": "16.4.5",
+    "git-last-commit": "1.0.1"
+  }
+}

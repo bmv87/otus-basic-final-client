@@ -1,0 +1,29 @@
+{
+  "Network Error": "Network Error",
+  "Должно быть значение в пределах {0}-{1}": "The value must be between {0}-{1}",
+  "Требуется значение от {0}": "Required value from {0}",
+  "Изменить статус. Текущий: {0}": "Change status. Current: {0}",
+  "Текущий статус: {0}": "Current status: {0}",
+  "Пользователь будет {0}. Продолжить?": "The user will be {0}. Continue?",
+  "Цена": "Price",
+  "$vuetify": {},
+  "$yup": {
+    "number": {
+      "min": "Must be more then {min}",
+      "max": "Must be less then {max}",
+      "integer": "Must be an integer",
+      "lessThan": "Must be less than ${less}",
+      "moreThan": "Must be greater than ${more}"
+    },
+    "string": {
+      "email": "Not valid email",
+      "min": "Must be at least {min} characters",
+      "max": "Must be at most {max} characters",
+      "uuid": "Must be an identifier guid"
+    },
+    "mixed": {
+      "required": "Required field",
+      "notType": "Must be a {type} type"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+    "tslint.enable": false,
+    "eslint.enable": true,
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit"
+    },
+    "eslint.workingDirectories": [{ "mode": "auto" }],
+    "eslint.validate": ["javascript", "typescript"],
+    "i18n-ally.localesPaths": [
+        "src/plugins/i18n",
+        "src/utils/validators/messages"
+    ],
+    "i18n-ally.sourceLanguage": "ru",
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "files.exclude": {
+      //"node_modules/**": true,
+      //"public/static/tinymce/**": true
+    }
+}
