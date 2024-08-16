@@ -22,6 +22,7 @@ const Profile = () => import('@/components/pages/users/Profile.vue')
 const Users = () => import('@/components/pages/users/Users.vue')
 const Notes = () => import('@/components/pages/notes/Notes.vue')
 const Subscriptions = () => import('@/components/pages/subscriptions/Subscriptions.vue')
+const Files = () => import('@/components/pages/files/Files.vue')
 
 // только администратор
 // const adminRouteMeta = {
@@ -86,6 +87,13 @@ const routes: Array<RouteRecordRaw> = [
         path: 'users/:userId/profile',
         name: 'Profile',
         component: Profile,
+        props: true,
+        meta: anyAuthUsersRouteMeta
+      },
+      {
+        path: 'users/:userId/files',
+        name: 'Files',
+        component: Files,
         props: true,
         meta: anyAuthUsersRouteMeta
       },

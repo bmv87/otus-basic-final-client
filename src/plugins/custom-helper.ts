@@ -1,6 +1,7 @@
 import { MYME_TYPES } from '@/constants/settings'
 import { env } from '@/plugins/environment-helper'
 import { AxiosResponse } from 'axios'
+import Bowser from 'bowser'
 
 const $env = env()
 
@@ -117,7 +118,33 @@ export const getQueryParamsString = (params?: any, keys?: string[], isArray = fa
 export const getEncodedUrl = (url: string): string => {
   return encodeURI(url).replace(/#/g, '%23').replace(/[+]/g, '%2B')
 }
-
+export const getContentDispositionHeaderValue = (fileName: string): string => {
+  const browser = Bowser.getParser(window.navigator.userAgent)
+  let contentDisposition
+  if (browser.getBrowserName() == 'IE' && (browser.getBrowserVersion() == '7.0' || browser.getBrowserVersion() == '8.0'))
+    contentDisposition = 'attachment; filename=' + encodeURIComponent(fileName)
+  else
+    contentDisposition = `attachment; filename=${encodeURIComponent(fileName)}`
+  return contentDisposition
+}
+// function encodeRFC5987ValueChars (str: string) {
+//   return (
+//     encodeURIComponent(str)
+//       // The following creates the sequences %27 %28 %29 %2A (Note that
+//       // the valid encoding of "*" is %2A, which necessitates calling
+//       // toUpperCase() to properly encode). Although RFC3986 reserves "!",
+//       // RFC5987 does not, so we do not need to escape it.
+//       .replace(
+//         /['()*]/g,
+//         (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`
+//       )
+//       // The following are not required for percent-encoding per RFC5987,
+//       // so we can allow for a little better readability over the wire: |`^
+//       .replace(/%(7C|60|5E)/g, (str, hex) =>
+//         String.fromCharCode(parseInt(hex, 16))
+//       )
+//   )
+// }
 export const saveToLocalStorage = (storageName: string, state: any) => {
   localStorage[storageName] = JSON.stringify(state)
   if ($env.isDevEnv()) {

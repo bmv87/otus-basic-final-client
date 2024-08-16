@@ -62,6 +62,13 @@ const menuItems = computed((): Array<MenuItem> => [
         text: t('Мои подписки'),
         route: `${urlRootPath.value}/users/${currentUserId.value}/subscriptions`,
         show: isLoggedIn.value
+      },
+      {
+        id: 'files',
+        icon: 'mdi-cloud-search-outline',
+        text: t('Мои файлы'),
+        route: `${urlRootPath.value}/users/${currentUserId.value}/files`,
+        show: isLoggedIn.value
       }
     ]
   },
