@@ -20,6 +20,7 @@
           icon="mdi-account-edit-outline"
           :tip="$t('Редактировать данные профиля')"
           :disabled="isLoading"
+          icon-color="primary"
           @click="openEditUserDialog" />
       <icon-tip
           :icon="user.locked

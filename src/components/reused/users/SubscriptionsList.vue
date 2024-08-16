@@ -25,6 +25,7 @@
               <btn-icon-tip
                   icon="mdi-eye"
                   :tip="$t('Посмотреть')"
+                  icon-color="primary"
                   :disabled="isLoading"
                   @click="goTo(subscription.raw.blogOwnerId)" />
               <btn-icon-tip

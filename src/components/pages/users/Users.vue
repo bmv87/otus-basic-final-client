@@ -82,12 +82,14 @@
                       v-if="!user.raw.subscribed && !user.raw.locked"
                       icon="mdi-plus-box-outline"
                       :tip="$t('Подписаться')"
+                      icon-color="primary"
                       :disabled="isLoading"
                       @click="addSubscription(user.raw.userId)" />
                   <route-btn-tip
                       v-if="user.raw.subscribed"
                       icon="mdi-eye"
                       :tip="$t('Посмотреть')"
+                      icon-color="primary"
                       :disabled="isLoading"
                       :to="{ path: `${urlRootPath}/users/${user.raw.userId}/profile` }" />
                   <btn-icon-tip

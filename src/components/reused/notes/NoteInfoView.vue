@@ -1,12 +1,12 @@
 <template>
-  <v-card density="compact" class="mx-auto" color="transparent" :title="note.username">
+  <v-card density="compact" class="ma-2 pa-0" color="transparent" :title="note.username">
     <template v-slot:prepend>
       <v-icon icon="mdi-account" />
     </template>
     <template v-slot:subtitle>
       <date-span :value="note.created" :date-format="DATE_TIME_HM_VIEW_FORMAT" />
     </template>
-    <v-card-text>
+    <v-card-text class="ma-0 py-0 px-2">
       <v-row class="ma-0 pa-0">
         <v-col v-if="isLoading" />
         <v-progress-linear :active="isLoading" />
@@ -19,8 +19,17 @@
             variant="outlined" />
       </v-row>
       <v-card-actions class="ma-0 pa-0">
-        <v-spacer />
-
+        <btn-icon-tip
+            icon="mdi-message-plus-outline"
+            :tip="$t('Оставить комментарий')"
+            :disabled="isLoading"
+            density="compact"
+            size="small"
+            icon-color="primary"
+            @click="openCommentDialog" />
+        <span>
+          {{ `(${commentsCount})` }}
+        </span>
         <btn-icon-tip
             v-if="note.userId === currentUserId"
             icon="mdi-forum-remove-outline"
@@ -30,22 +39,14 @@
             size="small"
             @click="deleteNote" />
 
-        <btn-icon-tip
-            icon="mdi-message-plus-outline"
-            :tip="$t('Оставить комментарий')"
-            :disabled="isLoading"
-            density="compact"
-            size="small"
-            @click="openCommentDialog" />
-        <span>
-          {{ `(${commentsCount})` }}
-        </span>
+        <v-spacer />
         <btn-icon-tip
             icon="mdi-thumb-up-outline"
             :tip="$t('Нравится ' + likeCount)"
             :disabled="isLoading || note.userId === currentUserId"
             density="compact"
             size="small"
+            icon-color="primary"
             @click="like" />
         <span>
           {{ `(${likeCount})` }}

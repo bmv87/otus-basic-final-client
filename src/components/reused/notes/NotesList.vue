@@ -1,14 +1,14 @@
 <template>
   <v-row>
-    <v-col cols="12" class="text-right">
+    <v-col cols="12" class="text-right px-7 py-0 my-0">
       <v-spacer />
       <btn-icon-tip
           v-if="userId === currentUserId"
           icon="mdi-message-plus-outline"
           :tip="$t('Добавить заметку')"
           :disabled="isLoading"
-          density="compact"
-          size="small"
+
+          icon-color="primary"
           @click="openNoteDialog" />
       <note-dialog
           v-if="noteDialogProps.show"
@@ -27,9 +27,8 @@
           item-value="noteId"
           item-title="content"
           item-children="notes"
-          expand-icon="mdi-message-processing-outline"
+          expand-icon="mdi-chevron-down"
           collapse-icon="mdi-chevron-up"
-          activatable
           item-props
           return-object
           open-on-click

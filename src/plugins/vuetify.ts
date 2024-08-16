@@ -27,15 +27,15 @@ const theme = {
     light: {
       dark: false,
       colors: {
-        primary: colors.blue.darken2,
+        primary: colors.teal.darken2,
         secondary: colors.grey.darken1,
-        accent: colors.blue.darken3,
+        accent: colors.teal.darken3,
         error: colors.red.accent2,
         info: colors.blue.darken1,
         success: colors.green.base,
         warning: colors.orange.darken2,
         anchor: colors.blue.base,
-        loader: colors.blue.lighten3,
+        loader: colors.cyan.accent4,
         primaryiconbtn: colors.orange.darken3,
         secondaryiconbtn: colors.shades.white,
         addbtn: colors.green.base,
@@ -48,21 +48,21 @@ const theme = {
     dark: {
       dark: true,
       colors: {
-        primary: colors.blue.base,
+        primary: colors.teal.darken2,
         secondary: colors.grey.darken1,
-        accent: colors.blue.darken3,
+        accent: colors.teal.darken3,
         error: colors.red.accent2,
         info: colors.blue.darken1,
         success: colors.green.base,
         warning: colors.orange.darken2,
         anchor: colors.blue.base,
-        loader: colors.blue.lighten3,
+        loader: colors.cyan.accent4,
         primaryiconbtn: colors.orange.darken3,
         secondaryiconbtn: colors.shades.white,
         addbtn: colors.green.base,
         requiredfield: colors.red.base,
-        textcolor: colors.shades.white,
-        inactiveitem: colors.grey.lighten1,
+        textcolor: colors.grey.darken4,
+        inactiveitem: colors.grey.darken1,
         textwithbackground: colors.shades.white
       }
     }
