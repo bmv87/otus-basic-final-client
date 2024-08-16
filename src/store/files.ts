@@ -67,22 +67,12 @@ export const useFilesStore = defineStore('files', {
     async uploadSingleFile2 (file: FileItem) {
       const arrayBuffer = await file.file.arrayBuffer()
       const buffer = Buffer.from(arrayBuffer)
-      //       const fileData = Buffer.from(await file.file.arrayBuffer())
-      // const reader = new FileReader()
-      const vm = this
-      // reader.readAsArrayBuffer(file.file)
-      console.log(arrayBuffer)
-      // console.log(fileData)
-
-      // const rawLog = reader.result
-      // console.log(rawLog)
       const requestParams = {
         url: `${$h().getServer()}${URL_FILES}`,
         model: buffer,
         settings: {
           headers: {
             'content-type': file.type,
-            // 'Content-Length': file.size,
             'content-disposition': getContentDispositionHeaderValue(file.name)
           }
         }
@@ -93,9 +83,8 @@ export const useFilesStore = defineStore('files', {
       const errorsStore = useErrorsStore()
       await errorsStore.hideError()
       const data = resp?.data as FileUploadingResponse
-      vm.currentFile = data
+      this.currentFile = data
       return data
-
     },
     async deleteFile (fileId: string) {
       const requestParams = {
@@ -105,7 +94,6 @@ export const useFilesStore = defineStore('files', {
       await axiosStore.deleteAxiosRequest(requestParams)
       this.clearSingleFile()
     },
-    // mutations can now become actions, instead of `state` as first argument use `this`
     async downloadFileWithSettings (params: IRequestParams) {
       const model: RequestModel = {
         url: params.url,
