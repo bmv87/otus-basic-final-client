@@ -133,6 +133,12 @@ export const getErrorDescription = (error: any | AxiosError<any, any>): IError =
         description
       }
       break
+    case 406 :
+      error = {
+        message: t('Тип данных не поддерживается.'),
+        description
+      }
+      break
     default:
       error = {
         message: error.message
