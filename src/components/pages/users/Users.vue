@@ -136,7 +136,7 @@
 
 <script lang="ts" setup>
 import {
-  onBeforeUnmount, Ref, onMounted, ref, reactive, computed
+  onBeforeUnmount, Ref, onMounted, ref, reactive, computed, watch
 } from 'vue'
 import { useErrorsStore } from '@/store/errors'
 import { useUsersStore } from '@/store/users'
@@ -284,4 +284,14 @@ onMounted(() => {
 onBeforeUnmount(() => {
   clearStore()
 })
+watch(
+  // getter
+  () => page.value,
+  // callback
+  (newVal: number, oldVal: number) => {
+    if (newVal !== oldVal) {
+      getUsers()
+    }
+  }
+)
 </script>
